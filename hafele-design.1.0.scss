@@ -23,13 +23,15 @@
   * Atomic variables
   */
 
- 
+  $haefele-red: rgb(210, 10, 40);
+  $grey: rgb(150, 150, 150);
+
 
 
 
 .hds-btn__primary--small {
-    background-color: green;
-    border: 5px solid green;
+    background-color: $haefele-red;
+    border: 5px solid $grey;
 }
 
 
