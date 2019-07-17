@@ -1,11 +1,11 @@
  /**
 
-  * Häfele Design System 1.0
+  * Haefele Design System 1.0
   * By Wunderman Thompson Commerce
   *
   * GLOBAL NAMESPACE:
   *
-  * hds:     Häfele Design System
+  * hds:     Haefele Design System
   * 
   * CLASS PREFIXES
   *  
@@ -16,21 +16,19 @@
 
 
 /*------------------------------------*\
-  #HÄFELE STYLING
+  #HaeFELE STYLING
 \*------------------------------------*/
 
 /**
   * Atomic variables
   */
 
-  $haefele-red: rgb(210, 10, 40);
-  $grey: rgb(150, 150, 150);
-
+ 
 
 
 
 .hds-btn__primary--small {
-    background-color: $haefele-red;
+    background-color: green;
     border: 5px solid green;
 }
 
