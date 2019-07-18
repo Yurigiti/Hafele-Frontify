@@ -1,0 +1,173 @@
+/*------------------------------------*\
+  # PROTONS
+\*------------------------------------*/
+
+/* Primary Colours
+  ========================================================================== */
+
+  $haefele-red: rgb(210, 10, 40);
+  $dark-red: rgb(140, 35, 50);
+  $grey: rgb(150, 150, 150);
+  $dark-grey: rgb(90, 90, 90);
+  
+  $black: rgb(0, 0, 0);
+  $white: rgb(255, 255, 255);
+  
+/* Secondary Colours
+    ========================================================================== */
+  
+  $medium-grey: rgb(124, 126, 129);
+  $silver-grey: rgb(217, 217, 217);
+  $light-grey: rgb(241, 241, 241);
+  $dimmed-white: rgb(252, 252, 252);
+  
+/* System Status
+    ========================================================================== */
+  
+  $error-orange: rgb(255, 78, 0);
+  $response-green: rgb(51, 156, 118);
+  $indication-yellow:rgb(230, 164, 0);
+  
+/* Heading styles
+    ========================================================================== */
+  
+@mixin type-style($font-size, $line-height, $font-weight: normal, $color: $dark-grey ) {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $color;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-decoration: none;
+}
+
+.hds {
+
+  &-heading {
+
+    &__h1 {
+      @include type-style(22px, 28px);
+
+      /* Desktop */
+      @media (min-width: 769px) {
+        @include type-style(28px, 32px);
+      }
+    }
+
+    &__h2 {
+      @include type-style(18px, 24px);
+
+      /* Desktop */
+      @media (min-width: 769px) {
+        @include type-style(20px, 24px);
+      }
+    }
+
+    &__h3 {
+      @include type-style(16px, 20px ,bold);
+    }
+
+    &__h4 {
+      @include type-style(16px, 20px);
+    }
+  }
+
+/* Copy styles
+    ========================================================================== */
+
+  &-copy {
+
+    &__text {
+      @include type-style(14px, 18px);
+    }
+
+    &__subline {
+      @include type-style(12px, 16px);
+    }
+
+    &__seo {
+      @include type-style(11px, 15px);
+    }
+  }
+  
+  /* Interface styles
+    ========================================================================== */
+    
+    &-link {
+
+      &__btn {
+        @include type-style(15px, normal);
+
+        &--bold {
+          @include type-style(16px, normal ,bold);
+        }
+
+      }
+
+      &__text {
+        @include type-style(13px, normal);
+        &:hover, &:active, &:focus {
+          color: $haefele-red;
+        }
+      }
+
+    }
+    
+    /* Icons
+    ========================================================================== */
+
+    /* Function to remove spacing and make svg usable as css background */
+
+    @function _buildIcon($icon) {
+      $icon: '%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2224%22%20height%3D%2224%22%3E#{$icon}%3C%2Fsvg%3E';
+      @return $icon;
+    }
+    
+    @function _buildPath($path, $parameters) {
+      $icon: '%3Cpath%20fill%3D%22#{map-get($parameters, color)}%22%20stroke%3D%22#{map-get($parameters, stroke-color)}%22%20stroke-width%3D%22#{map-get($parameters, stroke-width)}%22%20style%3D%22#{map-get($parameters, css)}%22%20d%3D%22#{$path}%22%20%2F%3E';
+      @return $icon;
+    }
+    
+    @function icon($icon-name, $color,$stroke-color: transparent, $stroke-width: 0, $css: ''){
+        $parameters: (
+          'color': $color,
+          'stroke-color': $stroke-color,
+          'stroke-width': $stroke-width,
+          'css': $css
+        );
+        
+        $icons: (
+          heart: _buildPath('M12 21.35l-1.45-1.32c-5.15-4.67-8.55-7.75-8.55-11.53 0-3.08 2.42-5.5 5.5-5.5 1.74 0 3.41.81 4.5 2.09 1.09-1.28 2.76-2.09 4.5-2.09 3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54l-1.45 1.31z', $parameters),
+          cart: _buildPath('M3.5,24 C2.67157288,24 2,23.3284271 2,22.5 C2,21.6715729 2.67157288,21 3.5,21 C4.32842712,21 5,21.6715729 5,22.5 C5,23.3284271 4.32842712,24 3.5,24 Z M13.5,24 C12.6715729,24 12,23.3284271 12,22.5 C12,21.6715729 12.6715729,21 13.5,21 C14.3284271,21 15,21.6715729 15,22.5 C15,23.3284271 14.3284271,24 13.5,24 Z M5.41935484,4.42783505 L24,4.42783505 L22.3548387,12.7525773 C22.1612903,13.9278351 21.2903226,14.8092784 20.1290323,14.9072165 L6.58064516,16.3762887 C6.58064516,16.6701031 6.48387097,17.8453608 6.48387097,18.1391753 L14.516129,18.1391753 L14.516129,20 L4.16129032,20 L4.25806452,19.0206186 C4.5483871,16.4742268 4.5483871,15.4948454 4.5483871,13.0463918 C4.5483871,9.91237113 4.16129032,6.19072165 3.38709677,2.7628866 L0,2.7628866 L0,1 L4.74193548,1 C4.74193548,1 5.32258065,3.05670103 5.41935484,4.42783505 Z', $parameters),
+          sales: _buildPath('M6,21 L6,15.2928571 C6,13.5321429 7.62,11.4678571 9.66,11.4678571 L14.4,11.4678571 C16.32,11.4678571 18,13.4714286 18,15.2321429 C18,15.2928571 18,21 18,21 L6,21 Z M8.6,7.27857143 C8.6,5.45714286 10.0857143,4 11.9428571,4 C13.8,4 15.2857143,5.45714286 15.2857143,7.27857143 C15.2857143,9.03928571 13.8,10.4964286 11.9428571,10.4964286 C10.0857143,10.4964286 8.6,9.03928571 8.6,7.27857143 Z', $parameters)
+        
+          );
+    
+    
+        $icon: _buildIcon(map-get($icons, $icon-name));
+        @return url("data:image/svg+xml;charset=utf8,#{$icon}");
+      }
+    
+    &-icon {
+      width: 48px;
+      height: 48px;
+      
+      background-size: contain;
+      display: inline-block;
+    }
+
+    
+    .icon-stroke       { background-image: icon(heart, transparent, red, 2); }
+    .icon-stroke-color { background-image: icon(heart, red, black, 2); }
+    .icon-dashstroke   { background-image: icon(heart, red, black, 2, 'stroke-dasharray : 2px, 1px;'); }
+    &-icon-cart        { background-image: icon(cart, blue); }
+    &-icon-sales       { 
+      background-image: icon(sales, blue); 
+      &:hover {
+        background-image: icon(cart, red);
+      }
+    }
+    
+
+  }
+
+
