@@ -2,11 +2,174 @@
   # ATOMS
 \*------------------------------------*/
 
-/* Imports
+@mixin type-style($font-size, $line-height, $font-weight: normal, $color: $dark-grey) {
+  color: $color;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-decoration: none;
+}
+
+@mixin text-link() {
+  @include type-style(13px, normal);
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $haefele-red;
+  }
+}
+
+/* Buttons
   ========================================================================== */
 
-@import "components/protons";
+  @mixin button($font-size, $height, $line-height: $font-size, $font-color:$white) {
+    font-size: $font-size;
+    color: $font-color;
+    height:$height;
+    line-height: $line-height;
+    
+    &:hover,:focus {
+      -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+      -webkit-box-shadow: 0px 1px 3px  rgba(0,0,0,0.1);
+      box-shadow: 0px 1px 3px  rgba(0,0,0,0.1);
+    }
+
+    &:active {
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+  @mixin button-padding($padding, $padding-sides) {
+    padding-top: $padding;
+    padding-bottom: $padding;
+    padding-left: $padding-sides;
+    padding-right: $padding-sides;
+  }
+
+  @mixin btn-icon($float:left, $margin-left: 0px, $margin-right:10px) {
+    float:$float;
+    margin-left:$margin-left;
+    margin-right:$margin-right;
+   
+  }
+
+  @mixin link-icon() {
+
+    margin-right:15px;
+
+  }
+
+  button:hover .hds-btn__icon {
+    background-image: icon(initial, $haefele-red);
+  }
+
+  .hds {
+    &-btn {
+      @include button(16px, 50px);
+      @include button-padding(16px, 30px);
+      @include gradient-red();
+
+      &__primary {
+        @extend .hds-btn;
+
+        &:hover {
+          @include gradient-dark-red();
+        }
+
+      }
+
+      &__secondary {
+        @include button(15px, 44px);
+        @include button-padding(12px, 25px);
+        @include gradient-dark-grey();
+
+        &:hover {
+          @include gradient-black();
+        }
+
+      }
+
+      &__tertiary {
+        @include button(15px, 44px, $font-color: $dark-grey);
+        @include button-padding(12px, 20px);
+        @include gradient-white();
+        border: 1px solid $grey;
+
+        &:hover {
+          @include button(15px, 44px, $font-color: $haefele-red);
+        }
+
+        &--small {
+          @include button(15px, 35px, $font-color: $dark-grey);
+          @include button-padding(8px, 20px);
+          @include gradient-grey();
+          border: none;
+
+          &:hover {
+            @include button(15px, 35px, $font-color: $haefele-red);
+          }
+        }
+
+        &--header {
+          @include button(15px, 35px, $font-color: $dark-grey);
+          @include button-padding(8px, 20px);
+          @include gradient-white();
+          
+
+          &:hover {
+            @include button(15px, 35px, $font-color: $haefele-red);
+          }
+        }
+
+      }
+
+      /* Links with icons
+      ========================================================================== */
+
+      &__icon {
+        @include btn-icon();
+
+        &:hover {
+          @include btn-icon();
+        }
+
+        &--right {
+          @include btn-icon(right, 10px, 0px);
+          margin-left: 10px;
+        }
+      }
+    }
+
+    &-link-icon {
+      @include link-icon();
+
+      &:hover {
+        @include link-icon();
+      }
+    }
+
+    &-link {
+
+      &__text {
+
+        &--icon {
+          @include type-style(13px, normal);
+          padding-left: 25px;
+
+          &:hover,
+          &:active,
+          &:focus {
+            color: $haefele-red;
+          }
+
+        }
+
+      }
+    }
+  }
 
 
-/* Primary Colours
-  ========================================================================== */
+   

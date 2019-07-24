@@ -81,6 +81,7 @@ pre {
 
 a {
   background-color: transparent;
+  cursor: pointer;
 }
 
 /**
@@ -192,6 +193,15 @@ button,
 input {
   /* 1 */
   overflow: visible;
+}
+
+
+button:hover {
+  cursor: pointer;
+}
+
+:focus {
+  outline: none;
 }
 
 /**
