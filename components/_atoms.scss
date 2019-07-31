@@ -53,17 +53,11 @@
     float:$float;
     margin-left:$margin-left;
     margin-right:$margin-right;
-   
   }
 
   @mixin link-icon() {
-
     margin-right:15px;
 
-  }
-
-  button:hover .hds-btn__icon {
-    background-image: icon(initial, $haefele-red);
   }
 
   .hds {
@@ -117,17 +111,26 @@
           @include button(15px, 35px, $font-color: $dark-grey);
           @include button-padding(8px, 20px);
           @include gradient-white();
+          position: relative;
           
-
           &:hover {
             @include button(15px, 35px, $font-color: $haefele-red);
+            
+      /* Buttons & Links with icons
+      ========================================================================== */
+            .hds-icon__cart--small {
+              background-image: icon(cart, $haefele-red);
+            }
+
+            .hds-icon__arrow-down-small--small {
+              background-image: icon(arrow-up-small, $haefele-red);
+            }
           }
         }
 
       }
 
-      /* Links with icons
-      ========================================================================== */
+
 
       &__icon {
         @include btn-icon();
@@ -140,36 +143,98 @@
           @include btn-icon(right, 10px, 0px);
           margin-left: 10px;
         }
+      
+    
+
       }
-    }
+      
+      &__icon-link {
+        @include type-style(13px, normal);
+        line-height: 17px;
+        color: $dark-grey;
+            &:hover, &:focus {
 
-    &-link-icon {
-      @include link-icon();
+            /* Icons */
+            .hds-link__text--icon {
+              color: $haefele-red;
+              text-decoration: none;
+              
+            }
+            .hds-icon__sales--small {
+              background-image: icon(sales, $haefele-red);
+            }
+            
+            .hds-icon__catalogue--small {
+              background-image: icon(catalogue, $haefele-red);
+            }
 
-      &:hover {
-        @include link-icon();
-      }
-    }
+            .hds-icon__country--small {
+              background-image: icon(country, $haefele-red);
+            }
 
-    &-link {
+            .hds-icon__email--small {
+              background-image: icon(email, $haefele-red);
+            }
 
-      &__text {
+            .hds-icon__arrow-down-bold--small {
+              background-image: icon(arrow-down-bold, $haefele-red);
+            }
 
-        &--icon {
-          @include type-style(13px, normal);
-          padding-left: 25px;
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: $haefele-red;
+            .hds-icon__arrow-down-small--small {
+              background-image: icon(arrow-up-small, $haefele-red);
+            }
           }
-
         }
 
+        &__icon-btn {
+
+          &--search {
+            background-image: icon(search, $haefele-red);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: 20px;
+            padding: 20px;
+            margin-top: -41px;
+            position: absolute;
+            right: 0px;
+          }
+        }
+    
+    }
+
+    /* Input fields
+      ========================================================================== */
+      hds-btn__icon-btn--search
+    /* Text input */
+    &-input {
+
+      &__text {
+        
+      }
+
+    }
+
+    /* Header searchfield */
+    &-form {
+
+      &__search {
+
+        &--header {
+          width: 100%;
+          box-sizing: border-box;
+          padding:10px 40px 10px 10px;
+          color: $dark-grey;
+          font-size:15px;
+          &::placeholder {
+            color: $grey;
+          }
+        }
       }
     }
-  }
+
+
+    }
+
 
 
    

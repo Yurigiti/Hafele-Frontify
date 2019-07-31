@@ -107,8 +107,7 @@ a {
 
 
 
-  @mixin type-style($font-size, $line-height, $font-weight: normal, $color: $dark-grey) {
-    color: $color;
+  @mixin type-style($font-size, $line-height, $font-weight: normal) {
     font-weight: $font-weight;
     font-size: $font-size;
     line-height: $line-height;
@@ -181,20 +180,30 @@ a {
       @include type-style(15px, normal);
 
       &--bold {
-        @include type-style(16px, normal, bold);
+        @include type-style(14px, normal, bold);
       }
     }
 
     &__text {
       @include type-style(13px, normal);
-
+      color: $haefele-red;
       &:hover,
       &:active,
       &:focus {
         color: $dark-red;
         text-decoration: underline;
       }
+
+      &--icon {
+        color: $dark-grey;
+        &:hover,
+        &:active,
+        &:focus {
+          color: $haefele-red;
+        }
+      }
     }
+    
 
   }
 
@@ -249,7 +258,7 @@ a {
       @include icon-style(arrow-down-bold, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(arrow-down-bold, $dark-red, 16px);
+        @include icon-style(arrow-down-bold, $haefele-red, 16px);
       }
     }
   }
@@ -266,7 +275,24 @@ a {
       @include icon-style(arrow-down-small, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(arrow-down-small, $dark-red, 16px);
+        @include icon-style(arrow-down-small, $haefele-red, 16px);
+      }
+    }
+  }
+
+  /* arrow-up-small */
+  &__arrow-up-small {
+    @include icon-style(arrow-up-small);
+
+    &:hover {
+      @include icon-style(arrow-up-small, $dark-red);
+    }
+
+    &--small {
+      @include icon-style(arrow-up-small, $dark-grey, 16px);
+
+      &:hover {
+        @include icon-style(arrow-up-small, $haefele-red, 16px);
       }
     }
   }
@@ -283,7 +309,7 @@ a {
       @include icon-style(email, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(email, $dark-red, 16px);
+        @include icon-style(email, $haefele-red, 16px);
       }
     }
   }
@@ -300,7 +326,7 @@ a {
       @include icon-style(catalogue, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(catalogue, $dark-red, 16px);
+        @include icon-style(catalogue, $haefele-red, 16px);
       }
     }
   }
@@ -317,7 +343,7 @@ a {
       @include icon-style(country, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(country, $dark-red, 16px);
+        @include icon-style(country, $haefele-red, 16px);
       }
     }
   }
@@ -334,7 +360,7 @@ a {
       @include icon-style(search, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(search, $dark-red, 16px);
+        @include icon-style(search, $haefele-red, 16px);
       }
     }
   }
@@ -351,27 +377,46 @@ a {
       @include icon-style(cart, $dark-grey, 16px);
 
       &:hover {
-        @include icon-style(cart, $dark-red, 16px);
+        @include icon-style(cart, $haefele-red, 16px);
       }
     }
   }
   }
+
+
+  /* Badges
+    ========================================================================== */
+
+    
+    &-badge {
+
+      /* Cart quantity indicator */
+      &__cart-items {
+        border-radius: 30px;
+        line-height: 17px;
+        width: auto;
+        height: 15px;
+        padding: 0px 4px;
+        border: 1px solid $grey;
+        background-color: $white;
+        font-size: 12px;
+        font-weight: bold;
+        left: 27px;
+        top: 3px;
+        position: absolute;
+      }
+    }
+
+
 
    /* Branding
     ========================================================================== */
 
     &-logo {
-      display: inline-block;
+      background-image: url(/Users/jvmeetelen/Documents/GitHub/Hafele-Frontify/components/Logo.svg);
       background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-
-      width: 150px;
-      height: 24px;
-      background-image: svg(logo);
-
-      &__icon {
-
-      }
+      width:150px;
+      height:24px;
     }
   }
+
