@@ -112,6 +112,7 @@ a {
     font-size: $font-size;
     line-height: $line-height;
     text-decoration: none;
+    color: $dark-grey;
   }
 
   @mixin text-link() {
