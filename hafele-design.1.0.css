@@ -927,7 +927,7 @@ a {
       top: 3px;
       position: absolute; }
   .hds-logo {
-    background-image: url(/components/Logo.svg);
+    background-image: url(components/Logo.svg);
     background-size: cover;
     width: 150px;
     height: 24px; }
