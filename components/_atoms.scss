@@ -60,6 +60,10 @@
 
   }
 
+  .quickorder {
+    margin-right:7px;
+  }
+
   .hds {
     &-btn {
       @include button(16px, 50px);
@@ -108,13 +112,14 @@
         }
 
         &--header {
-          @include button(15px, 35px, $font-color: $dark-grey);
+          @include button(15px, 44px, $font-color: $dark-grey);
           @include button-padding(8px, 20px);
           @include gradient-white();
           position: relative;
-          
+          width: 15%;
+          min-width: 150px;
           &:hover {
-            @include button(15px, 35px, $font-color: $haefele-red);
+            @include button(15px, 44px, $font-color: $haefele-red);
             
       /* Buttons & Links with icons
       ========================================================================== */
@@ -125,7 +130,13 @@
             .hds-icon__arrow-down-small--small {
               background-image: icon(arrow-up-small, $haefele-red);
             }
+
+            .hds-link__btn--bold {
+              color: $haefele-red;
+            }
           }
+
+
         }
 
       }
@@ -194,7 +205,7 @@
             background-position: 50% 50%;
             background-size: 20px;
             padding: 20px;
-            margin-top: -41px;
+            top:6%;
             position: absolute;
             right: 0px;
           }
@@ -214,23 +225,6 @@
 
     }
 
-    /* Header searchfield */
-    &-form {
-
-      &__search {
-
-        &--header {
-          width: 100%;
-          box-sizing: border-box;
-          padding:10px 40px 10px 10px;
-          color: $dark-grey;
-          font-size:15px;
-          &::placeholder {
-            color: $grey;
-          }
-        }
-      }
-    }
 
 
     }

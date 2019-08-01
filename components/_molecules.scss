@@ -7,12 +7,34 @@
 
 .hds {
 
-  &-header {
-  
-    &__bottom {
+    /* Header searchfield */
+    &-form {
 
+      &__search {
+
+        &--header-input {
+          width: 100%;
+          box-sizing: border-box;
+          padding:12px 40px 11px 10px;
+          color: $dark-grey;
+          font-size:15px;
+          &::placeholder {
+            color: $grey;
+          }
+        }
+
+        &--header-form {
+          width: 85%;
+          margin-right: 7px;
+        }
+
+        &--header-wrapper {
+          display: flex;
+          align-content: stretch;
+          padding: 7px;
+          background-color: $grey;
+        }
+      }
     }
-
-}
 
 }

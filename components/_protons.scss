@@ -165,6 +165,10 @@ a {
 
     &__subline {
       @include type-style(12px, 16px);
+      &--header {
+        @include type-style(12px, 16px);
+        margin:0px 0px 0px 5%;
+      }
     }
 
     &__seo {
@@ -182,6 +186,11 @@ a {
 
       &--bold {
         @include type-style(14px, normal, bold);
+      }
+
+      &--navigation {
+        @include type-style(15px, normal);
+        margin-right:3%;
       }
     }
 
