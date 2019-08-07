@@ -1223,5 +1223,7 @@ a {
 \*------------------------------------*/
 /* Imports
   ========================================================================== */
+.container .header .row {
+  margin-bottom: 10px; }
 
 /*# sourceMappingURL=hafele-design.1.0.css.map */
