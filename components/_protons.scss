@@ -5,7 +5,7 @@
 /* Primary Colours
   ========================================================================== */
 
-$haefele-red: #D20A28;
+$haefele-red: purple;
 $dark-red: #8c2332;
 $grey: #969696;
 $dark-grey: #5a5a5a;
@@ -151,6 +151,9 @@ a {
 
     &__h4 {
       @include type-style(16px, 20px);
+    }
+    &--right {
+      text-align: right;
     }
   }
 
